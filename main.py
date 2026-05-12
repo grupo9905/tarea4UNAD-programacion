@@ -227,3 +227,85 @@ except ValueError as error:
 
     # Mostramos error
     print("Error:", error)
+
+    # ==========================================================
+# CLASE RESERVA
+# APORTE: integrante 3
+# ==========================================================
+
+
+# Clase reserva
+class Reserva:
+
+    # Constructor
+    def __init__(self, cliente, servicio, duracion):
+
+        # Validamos duracion
+        if duracion <= 0:
+
+            # Generamos error
+            raise ValueError("La duracion debe ser mayor a cero")
+
+        # Guardamos cliente
+        self.cliente = cliente
+
+        # Guardamos servicio
+        self.servicio = servicio
+
+        # Guardamos duracion
+        self.duracion = duracion
+
+        # Estado inicial
+        self.estado = "Pendiente"
+
+    # Metodo para confirmar reserva
+    def confirmar_reserva(self):
+
+        # Cambiamos estado
+        self.estado = "Confirmada"
+
+        # Mensaje
+        print("Reserva confirmada")
+
+    # Metodo para cancelar reserva
+    def cancelar_reserva(self):
+
+        # Cambiamos estado
+        self.estado = "Cancelada"
+
+        # Mensaje
+        print("Reserva cancelada")
+
+    # Metodo para mostrar reserva
+    def mostrar_reserva(self):
+
+        # Mostramos informacion
+        print("Cliente:", self.cliente.nombre)
+        print("Servicio:", self.servicio.nombre_servicio)
+        print("Duracion:", self.duracion)
+        print("Estado:", self.estado)
+
+
+# Bloque de pruebas
+try:
+
+    # Creamos cliente
+    cliente2 = Cliente("Ana Torres", "55555", "301999888")
+
+    # Creamos servicio
+    servicio2 = Asesoria(3)
+
+    # Creamos reserva
+    reserva1 = Reserva(cliente2, servicio2, 3)
+
+    # Confirmamos reserva
+    reserva1.confirmar_reserva()
+
+    # Mostramos datos
+    reserva1.mostrar_reserva()
+
+# Capturamos errores
+except ValueError as error:
+
+    # Mostramos error
+    print("Error:", error)
