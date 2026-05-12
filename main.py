@@ -309,3 +309,66 @@ except ValueError as error:
 
     # Mostramos error
     print("Error:", error)
+
+    # ==========================================================
+# VALIDACIONES Y EXCEPCIONES
+# APORTE: integrante 4
+# ==========================================================
+
+
+# Excepcion personalizada
+class ErrorReserva(Exception):
+
+    # Constructor
+    def __init__(self, mensaje):
+
+        # Guardamos mensaje
+        self.mensaje = mensaje
+
+        # Llamamos constructor padre
+        super().__init__(self.mensaje)
+
+
+# Bloque principal de validaciones
+try:
+
+    # Intentamos crear cliente incorrecto
+    cliente_error = Cliente("1234", "abc", "telefono")
+
+# Capturamos errores de validacion
+except ValueError as error:
+
+    # Mostramos error
+    print("Error de validacion:", error)
+
+# Finally siempre se ejecuta
+finally:
+
+    # Mensaje final
+    print("Validacion finalizada")
+
+
+# Segundo bloque
+try:
+
+    # Creamos servicio incorrecto
+    servicio_error = ReservaSala(-5)
+
+# Capturamos error
+except ValueError as error:
+
+    # Mostramos error
+    print("Error en servicio:", error)
+
+
+# Tercer bloque
+try:
+
+    # Generamos excepcion personalizada
+    raise ErrorReserva("No hay disponibilidad para la reserva")
+
+# Capturamos excepcion personalizada
+except ErrorReserva as error:
+
+    # Mostramos error
+    print("Error personalizado:", error)
