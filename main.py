@@ -90,3 +90,140 @@ except ValueError as error:
 
     # Mostramos error
     print("Error:", error)
+
+    # ==========================================================
+# CLASES DE SERVICIOS
+# APORTE: integrante 2
+# ==========================================================
+
+
+# Clase abstracta servicio
+class Servicio(ABC):
+
+    # Constructor
+    def __init__(self, nombre_servicio):
+
+        # Guardamos nombre
+        self.nombre_servicio = nombre_servicio
+
+    # Metodo abstracto
+    @abstractmethod
+    def calcular_costo(self):
+        pass
+
+    # Metodo abstracto
+    @abstractmethod
+    def descripcion(self):
+        pass
+
+
+# Servicio de reserva de salas
+class ReservaSala(Servicio):
+
+    # Constructor
+    def __init__(self, horas):
+
+        # Llamamos constructor padre
+        super().__init__("Reserva de sala")
+
+        # Validamos horas
+        if horas <= 0:
+
+            # Generamos error
+            raise ValueError("Las horas deben ser mayores a cero")
+
+        # Guardamos horas
+        self.horas = horas
+
+    # Metodo para calcular costo
+    def calcular_costo(self):
+
+        # Retornamos costo
+        return self.horas * 50
+
+    # Metodo descripcion
+    def descripcion(self):
+
+        # Mostramos descripcion
+        print("Servicio de reserva de salas")
+
+
+# Servicio de alquiler de equipos
+class AlquilerEquipo(Servicio):
+
+    # Constructor
+    def __init__(self, dias):
+
+        # Llamamos constructor padre
+        super().__init__("Alquiler de equipos")
+
+        # Validamos dias
+        if dias <= 0:
+
+            # Generamos error
+            raise ValueError("Los dias deben ser mayores a cero")
+
+        # Guardamos dias
+        self.dias = dias
+
+    # Metodo calcular costo
+    def calcular_costo(self):
+
+        # Retornamos costo
+        return self.dias * 80
+
+    # Metodo descripcion
+    def descripcion(self):
+
+        # Mostramos descripcion
+        print("Servicio de alquiler de equipos")
+
+
+# Servicio de asesorias
+class Asesoria(Servicio):
+
+    # Constructor
+    def __init__(self, horas):
+
+        # Llamamos constructor padre
+        super().__init__("Asesoria especializada")
+
+        # Validamos horas
+        if horas <= 0:
+
+            # Generamos error
+            raise ValueError("Las horas deben ser mayores a cero")
+
+        # Guardamos horas
+        self.horas = horas
+
+    # Metodo calcular costo
+    def calcular_costo(self):
+
+        # Retornamos costo
+        return self.horas * 100
+
+    # Metodo descripcion
+    def descripcion(self):
+
+        # Mostramos descripcion
+        print("Servicio de asesorias especializadas")
+
+
+# Bloque de pruebas
+try:
+
+    # Creamos servicio
+    servicio1 = ReservaSala(2)
+
+    # Mostramos descripcion
+    servicio1.descripcion()
+
+    # Mostramos costo
+    print("Costo:", servicio1.calcular_costo())
+
+# Capturamos errores
+except ValueError as error:
+
+    # Mostramos error
+    print("Error:", error)
