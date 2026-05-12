@@ -372,3 +372,63 @@ except ErrorReserva as error:
 
     # Mostramos error
     print("Error personalizado:", error)
+
+    # ==========================================================
+# LOGS Y OPERACIONES
+# APORTE: integrante 5
+# ==========================================================
+
+
+# Funcion para guardar logs
+def guardar_log(mensaje):
+
+    # Abrimos archivo
+    with open("logs.txt", "a", encoding="utf-8") as archivo:
+
+        # Guardamos mensaje
+        archivo.write(f"{datetime.now()} - {mensaje}\n")
+
+
+# Lista de operaciones
+operaciones = [
+
+    ("Luis", "111", "300111"),
+    ("Pedro", "222", "300222"),
+    ("Maria", "333", "300333"),
+    ("Jorge", "444", "300444"),
+    ("Laura", "555", "300555"),
+    ("1234", "abc", "error"),
+    ("Camila", "777", "300777"),
+    ("Andres", "888", "300888"),
+    ("", "999", "300999"),
+    ("Felipe", "1010", "telefono")
+
+]
+
+
+# Recorremos operaciones
+for dato in operaciones:
+
+    try:
+
+        # Creamos cliente
+        nuevo_cliente = Cliente(dato[0], dato[1], dato[2])
+
+        # Mensaje exitoso
+        print("Cliente registrado:", nuevo_cliente.nombre)
+
+        # Guardamos log
+        guardar_log("Cliente registrado correctamente")
+
+    # Capturamos errores
+    except Exception as error:
+
+        # Mostramos error
+        print("Error detectado:", error)
+
+        # Guardamos log del error
+        guardar_log(f"Error detectado: {error}")
+
+
+# Mensaje final
+print("Sistema ejecutado correctamente")

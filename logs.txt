@@ -1,0 +1,10 @@
+2026-05-12 13:25:58.997998 - Cliente registrado correctamente
+2026-05-12 13:25:58.998409 - Cliente registrado correctamente
+2026-05-12 13:25:58.998720 - Cliente registrado correctamente
+2026-05-12 13:25:58.998975 - Cliente registrado correctamente
+2026-05-12 13:25:58.999254 - Cliente registrado correctamente
+2026-05-12 13:25:58.999544 - Error detectado: El nombre solo debe tener letras
+2026-05-12 13:25:58.999795 - Cliente registrado correctamente
+2026-05-12 13:25:59.000071 - Cliente registrado correctamente
+2026-05-12 13:25:59.000336 - Error detectado: El nombre solo debe tener letras
+2026-05-12 13:25:59.000589 - Error detectado: El telefono solo debe tener numeros
